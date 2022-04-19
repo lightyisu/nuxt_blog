@@ -4,6 +4,7 @@
     <nav>
       <i class="icon-logo"></i>
     </nav>
+    
     <div class="nuxt-slot">
           <Nuxt />
     </div>
@@ -15,8 +16,9 @@
 export default {};
 </script>
 
-<style scoped>
-.frosted {
+<style >
+
+.frosted{
   z-index: 2;
   position: fixed;
   left: 0;
@@ -50,7 +52,6 @@ nav {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-.nuxt-slot{
-    margin-top: 70px;
-}
+
+
 </style>

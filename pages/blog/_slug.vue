@@ -1,17 +1,22 @@
 <template>
-  <div>
-    <nav>
-     
-      <ul v-for="(item, index) in article.toc" :key="index">
-        <nuxt-link :to="`#${item.id}`">{{item.text}}</nuxt-link>
-      </ul>
-    </nav>
+  <div class="wrapper">
+  
     <article>
-      <nuxt-content :document="article" />
-      <pre>
+         <nuxt-link to='/'>
+           <i class="backto"></i> 
+         </nuxt-link>  
+       <h1> 
+   
+        {{article.title}}</h1>
+       <br/>
+      <el-card class="content-card">
+         <nuxt-content :document="article" />
+     <!-- <pre>
           {{ article }}
-      </pre>
-      dwadw
+      </pre>-->
+      </el-card>
+     
+  
     </article>
   </div>
 </template>
@@ -25,7 +30,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.wrapper{
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  article{
+    display: inline-block;
+    padding-top: 20px;
+    .content-card{
+      width: 600px;
+    }
+  }
+}
 .nuxt-content h2 {
   font-weight: bold;
   font-size: 28px;
@@ -44,4 +61,14 @@ export default {
   height: 20px;
   background-size: 20px 20px;
 }
-</style>
+.backto{
+  display: inline-block;
+  width: 20px;
+  margin: 10px 0;
+
+  height: 20px;
+  background-image: url('~assets/icon-arrow-left.svg');
+}
+</style> 
+
+

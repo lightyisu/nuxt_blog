@@ -1,0 +1,13 @@
+html,body{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    height: 1200px;
+    font-family: 'OPPOSANS';
+    background: #f4f6f8;
+  }
+  @font-face {
+    font-family: OPPOSANS;
+    src: url('~/assets/OPPOSans-M.ttf');
+  }
