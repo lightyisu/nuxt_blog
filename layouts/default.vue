@@ -45,7 +45,7 @@ nav {
 }
 
 .icon-logo {
-  background: url("~/assets/blog.png");
+  background: url("~/assets/Blog.png");
   display: inline-block;
   height: 40px;
   width: 80px;
