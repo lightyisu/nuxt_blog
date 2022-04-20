@@ -9,5 +9,5 @@ html,body{
   }
   @font-face {
     font-family: OPPOSANS;
-    src: url('~/assets/OPPOSans-M.ttf');
+    src: url('~static/OPPOSans-M.ttf');
   }
