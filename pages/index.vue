@@ -82,34 +82,13 @@ export default {
   },
 
   async asyncData({ app, $content, parames }) {
-    if (process.server) {
-      const fs = require("fs");
-    
+    let res = await $content("articles").fetch();
+  
+    const fs=require('fs')
+    await fs.writeFile("static/font.txt", JSON.stringify(res), (err) => {
+      console.log(err);
+    });
 
-      let { data } = await app.$axios.get(
-        "https://asop2rq5.directus.app/items/article"
-      );
-      console.log("向服务器请求post");
-      data.data.forEach(async (item) => {
-        const { title, content } = item;
-        await fs.writeFile(
-          "content/articles/" + title + ".md",
-          content,
-          (err) => {
-            console.log(err);
-          }
-        );
-      });
-
-      let res = await $content("articles").fetch();
-
-    
-      await fs.writeFile("static/font.txt", JSON.stringify(res), (err) => {
-        console.log(err);
-      });
-
-      // some code with fs
-    }
     const articles = await $content("articles")
       .only(["title", "slug", "description"])
       .fetch();

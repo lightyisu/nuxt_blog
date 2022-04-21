@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "gulp&&nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate&& node ./script/fontmin.js "
+    "generate": "gulp&&nuxt generate&& node ./script/fontmin.js "
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/axios": "^5.13.6",
+    "axios": "^0.26.1",
     "core-js": "^3.19.3",
     "element-ui": "^2.15.6",
     "fontmin": "^0.9.9",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
     "sass": "^1.50.1",
     "sass-loader": "10"
   }
