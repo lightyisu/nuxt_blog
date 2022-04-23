@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <div class="content-row">
+  <div class="wrapper" >
+    <div class="content-row" >
       <el-card class="box-card cover-card" shadow="never">
         <video width="100%" autoplay muted loop>
           <source src="~/assets/welcome.mp4" />
@@ -69,6 +69,7 @@ export default {
   data() {
     return {
       date: "",
+     
     };
   },
 
@@ -127,14 +128,14 @@ export default {
     margin-right: 10px;
     .box-card {
       ::v-deep .el-button {
-        background: rgb(0, 47, 167);
+        background: #1e1d1d;
         display: block;
         margin: 20px 0px;
-        border: non;
+        padding: 10px 30px;
         color: #fff;
-        &:hover {
-          background: black;
-        }
+        border: none;
+        border-radius: 20px;
+     
       }
       margin: 20px 0;
       width: 300px;

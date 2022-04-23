@@ -8,12 +8,20 @@
     <div class="nuxt-slot">
           <Nuxt />
     </div>
-  
+ 
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+    
+    }
+  },
+
+
+};
 </script>
 
 <style >
@@ -52,6 +60,11 @@ nav {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-
+.loading-page{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
 
 </style>
