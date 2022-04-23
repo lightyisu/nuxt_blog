@@ -33,7 +33,8 @@
      </pre
       >-->
       <p>本站采用OPPP SANS字体</p>
-      <p>©2022 github.com/lightyisu</p>
+      <p>©2022 f2v2.com
+        <br/>©f2v2 Auto Web Engine</p>
     </div>
     <div class="content-row">
       <el-card class="box-card text-cover" shadow="never">
