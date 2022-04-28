@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper" >
-    <div class="content-row" >
+  <div class="wrapper">
+    <div class="content-row">
       <el-card class="box-card cover-card" shadow="never">
         <video width="100%" autoplay muted loop>
           <source src="~/assets/welcome.mp4" />
@@ -33,8 +33,7 @@
      </pre
       >-->
       <p>本站采用OPPP SANS字体</p>
-      <p>©2022 f2v2.com
-        <br/>©f2v2 Auto Web Engine</p>
+      <p>©2022 f2v2.com <br />©f2v2 Auto Web Engine</p>
     </div>
     <div class="content-row">
       <el-card class="box-card text-cover" shadow="never">
@@ -59,6 +58,7 @@
           <el-button>GO</el-button></nuxt-link
         >
       </el-card>
+ 
     </div>
   </div>
 </template>
@@ -69,7 +69,6 @@ export default {
   data() {
     return {
       date: "",
-     
     };
   },
 
@@ -78,15 +77,15 @@ export default {
   },
   computed: {
     getDay() {
-      const numberToCN = ["一", "二", "三", "四", "五", "六", "日"];
-      return numberToCN[this.date - 1];
+      const numberToCN = ["日", "一", "二", "三", "四", "五", "六"];
+      return numberToCN[this.date];
     },
   },
 
   async asyncData({ app, $content, parames }) {
     let res = await $content("articles").fetch();
-  
-    const fs=require('fs')
+
+    const fs = require("fs");
     await fs.writeFile("static/font.txt", JSON.stringify(res), (err) => {
       console.log(err);
     });
@@ -135,7 +134,6 @@ export default {
         color: #fff;
         border: none;
         border-radius: 20px;
-     
       }
       margin: 20px 0;
       width: 300px;

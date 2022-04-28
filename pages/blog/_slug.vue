@@ -39,7 +39,7 @@ export default {
     display: inline-block;
     padding-top: 20px;
     .content-card{
-      width: 600px;
+      width: 800px;
     }
   }
 }
