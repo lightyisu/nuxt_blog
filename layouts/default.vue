@@ -4,29 +4,35 @@
     <nav>
       <i class="icon-logo"></i>
     </nav>
-    
+
     <div class="nuxt-slot">
-          <Nuxt />
+      <Nuxt />
     </div>
- 
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-    
-    }
+  data() {
+    return {};
   },
-
-
+  created() {
+    if(process.client){
+         var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?256819b8e1b83e81b6d489dfe92f4316";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    }
+ 
+  },
 };
 </script>
 
-<style >
-
-.frosted{
+<style>
+.frosted {
   z-index: 2;
   position: fixed;
   left: 0;
@@ -35,20 +41,19 @@ export default {
   height: 70px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
- border-bottom: 1px solid rgb(207, 199, 199);
-
+  border-bottom: 1px solid rgb(207, 199, 199);
 }
 
 nav {
- display: flex;
-   left: 0;
+  display: flex;
+  left: 0;
   top: 0;
-    justify-content: center;
-    align-items: center; 
+  justify-content: center;
+  align-items: center;
   position: fixed;
   width: 100%;
   height: 70px;
- 
+
   z-index: 10;
 }
 
@@ -60,11 +65,10 @@ nav {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-.loading-page{
+.loading-page {
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
 }
-
 </style>
