@@ -10,7 +10,7 @@
     </div>
         <footer>
     <div class="logo">
-       <img src="~/assets/blog.png" width="80px"/>
+       <img src="/blog.png" width="80px"/>
        <span> | 想法,代码与日常 <small>2022  </small></span>
     </div>
   
@@ -65,7 +65,7 @@ nav {
 }
 
 .icon-logo {
-  background: url('../assets/blog.png');
+  background: url('/blog.png');
   display: inline-block;
   height: 40px;
   width: 80px;
