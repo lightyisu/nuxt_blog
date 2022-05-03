@@ -42,17 +42,21 @@ export default {
   mounted() {
     console.log("mounted");
     let that = this;
-    document.onreadystatechange = function () {
-      if (document.readyState == "complete") {
-        console.log(that);
-        //that的作用存储vue示例 在此函数本来是this=document
-        //通过that间接访问Vue实例
-        that.loading = false;
+    if (document.readyState == "complete") {
+      that.loading = false;
+    } else {
+      document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+          console.log(that);
+          //that的作用存储vue示例 在此函数本来是this=document
+          //通过that间接访问Vue实例
+          that.loading = false;
 
-        // 页面加载完毕
-        console.log("complete");
-      }
-    };
+          // 页面加载完毕
+          console.log("complete");
+        }
+      };
+    }
   },
 };
 </script>
