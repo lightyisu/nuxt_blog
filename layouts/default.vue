@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style >
 .frosted {
   z-index: 2;
   position: fixed;
@@ -84,12 +84,13 @@ footer{
   margin-top: 80px;
   display: flex;
   align-items: center;
-  .logo{
+}
+footer .logo{
     margin-left: 40px;
   }
 span{
   vertical-align: super;
 }
   
-}
+
 </style>
