@@ -1,29 +1,37 @@
 <template>
   <div class="wrapper">
-  
     <article>
-         <nuxt-link to='/'>
-           <i class="backto"></i> 
-         </nuxt-link>  
-       <h1> 
-   
-        {{article.title}}</h1>
-       <br/>
+      <nuxt-link to="/">
+        <i class="backto"></i>
+      </nuxt-link>
+      <h1>
+        {{ article.title }}
+      </h1>
+      <br />
       <el-card class="content-card">
-         <nuxt-content :document="article" />
-     <!-- <pre>
+        <nuxt-content :document="article" />
+        <!-- <pre>
           {{ article }}
       </pre>-->
       </el-card>
-     
-  
     </article>
-
   </div>
 </template>
 
 <script>
 export default {
+  head() {
+    return {
+      title: this.article.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.article.description,
+        },
+      ],
+    };
+  },
   async asyncData({ $content, params }) {
     const article = await $content("articles", params.slug).fetch();
     return { article };
@@ -32,19 +40,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
+.wrapper {
   margin-top: 70px;
   display: flex;
   justify-content: center;
-  article{
+  article {
     display: inline-block;
     padding-top: 20px;
-    .content-card{
+    .content-card {
       width: 800px;
-    @media screen and (max-width:600px){
-          width: 90vw;
-          margin-bottom: 100px;
-        }
+      @media screen and (max-width: 600px) {
+        width: 90vw;
+        margin-bottom: 100px;
+      }
     }
   }
 }
@@ -55,17 +63,13 @@ export default {
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
-
 }
-.backto{
+.backto {
   display: inline-block;
   width: 20px;
   margin: 10px 0;
 
   height: 20px;
-  background-image: url('~assets/icon-arrow-left.svg');
+  background-image: url("~assets/icon-arrow-left.svg");
 }
-
-</style> 
-
-
+</style>
