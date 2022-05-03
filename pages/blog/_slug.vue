@@ -40,6 +40,10 @@ export default {
     padding-top: 20px;
     .content-card{
       width: 800px;
+    @media screen and (max-width:600px){
+          width: 90vw;
+          margin-bottom: 100px;
+        }
     }
   }
 }

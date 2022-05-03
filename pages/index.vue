@@ -1,65 +1,58 @@
 <template>
-  <div class="wrapper">
-    <div class="content-row">
-      <el-card class="box-card cover-card" shadow="never">
-        <video width="100%" autoplay muted loop>
-          <source src="~/assets/welcome.mp4" />
-        </video>
-      </el-card>
+  <div class="outer">
+    <div class="wrapper">
+      <div class="content-row">
+        <el-card class="box-card cover-card" shadow="never">
+          <video width="100%" autoplay muted loop>
+            <source src="~/assets/welcome.mp4" />
+          </video>
+        </el-card>
 
-      <el-card
-        v-for="(item, index) in col1Arr"
-        :key="index"
-        class="box-card"
-        shadow="never"
-      >
-        <h2>
-          {{ item.title }}
-        </h2>
-        <p>{{ item.description }}</p>
-        <nuxt-link :to="'/blog/' + item.slug">
-          <el-button>GO</el-button>
-        </nuxt-link>
-      </el-card>
-      <el-card shadow="never" class="card-info box-card">
+        <el-card
+          v-for="(item, index) in col1Arr"
+          :key="index"
+          class="box-card"
+          shadow="never"
+        >
+          <h2>
+            {{ item.title }}
+          </h2>
+          <p>{{ item.description }}</p>
+          <nuxt-link :to="'/blog/' + item.slug">
+            <el-button>GO</el-button>
+          </nuxt-link>
+        </el-card>
+      </div>
+      <div class="content-row">
+        <el-card class="box-card text-cover" shadow="never">
+          <h1>Today is a good day</h1>
+          <p>
+            今天是美好的<span class="highlight-red">星期{{ getDay }}</span>
+          </p>
+        </el-card>
+
+        <el-card
+          v-for="(item, index) in col2Arr"
+          :key="index"
+          class="box-card"
+          shadow="never"
+        >
+          <h2>
+            {{ item.title }}
+          </h2>
+          <p>{{ item.description }}</p>
+
+          <nuxt-link :to="'/blog/' + item.slug">
+            <el-button>GO</el-button></nuxt-link
+          >
+        </el-card>
+               <el-card shadow="never" class="card-info box-card">
         <el-image src="/nuxt-logo.svg" fit="contain" />
         <span :style="{ fontSize: '16px' }">SSG/Directus Cloud</span>
       </el-card>
-
-      <!-- <pre>
-      {{ articles }}
-      {{col1Arr}}
-      {{col2Arr}}
-     </pre
-      >-->
-      <p>本站采用OPPP SANS字体</p>
-      <p>©2022 f2v2.com <br />©f2v2 Auto Web Engine</p>
+      </div>
     </div>
-    <div class="content-row">
-      <el-card class="box-card text-cover" shadow="never">
-        <h1>Today is a good day</h1>
-        <p>
-          今天是美好的<span class="highlight-red">星期{{ getDay }}</span>
-        </p>
-      </el-card>
 
-      <el-card
-        v-for="(item, index) in col2Arr"
-        :key="index"
-        class="box-card"
-        shadow="never"
-      >
-        <h2>
-          {{ item.title }}
-        </h2>
-        <p>{{ item.description }}</p>
-
-        <nuxt-link :to="'/blog/' + item.slug">
-          <el-button>GO</el-button></nuxt-link
-        >
-      </el-card>
- 
-    </div>
   </div>
 </template>
 
@@ -113,34 +106,33 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.outer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
 .wrapper {
   display: flex;
   width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
   .content-row {
     margin-top: 80px;
+    @media screen and (max-width:600px) {
+      &:nth-of-type(2){
+          margin-top: 0px;
+      }
+    
+      
+    }
     flex-direction: column;
     display: flex;
 
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-right: 10px;
-    .box-card {
-      ::v-deep .el-button {
-        background: #1e1d1d;
-        display: block;
-        margin: 20px 0px;
-        padding: 10px 30px;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-      }
-      margin: 20px 0;
-      width: 300px;
 
-      display: inline-block;
-      border-radius: 10px;
-    }
     .cover-card {
       height: 200px;
       ::v-deep .el-card__body {
@@ -159,4 +151,23 @@ export default {
     color: rgb(252, 65, 65);
   }
 }
+.box-card {
+  ::v-deep .el-button {
+    background: #1e1d1d;
+    display: block;
+    margin: 20px 0px;
+    padding: 10px 30px;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+  }
+
+  margin: 20px 0;
+  width: 300px;
+
+  display: inline-block;
+  border-radius: 10px;
+}
+
+
 </style>
