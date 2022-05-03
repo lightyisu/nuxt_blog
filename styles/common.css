@@ -21,6 +21,6 @@ html,body{
   }
   .nuxt-content p {
 
-    text-indent: 0.8cm;
+    line-height: 1.5;
     margin-bottom: 20px;
   }
