@@ -8,6 +8,13 @@
     <div class="nuxt-slot">
       <Nuxt />
     </div>
+        <footer>
+    <div class="logo">
+       <img src="~/assets/blog.png" width="80px"/>
+       <span> | 想法,代码与日常 <small>2022  </small></span>
+    </div>
+  
+  </footer>
   </div>
 </template>
 
@@ -31,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang='scss' scoped>
 .frosted {
   z-index: 2;
   position: fixed;
@@ -70,5 +77,19 @@ nav {
   height: 100%;
   width: 100%;
   top: 0;
+}
+footer{
+  background: #fff;
+  height: 140px;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  .logo{
+    margin-left: 40px;
+  }
+span{
+  vertical-align: super;
+}
+  
 }
 </style>

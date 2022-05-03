@@ -18,6 +18,7 @@
      
   
     </article>
+
   </div>
 </template>
 
@@ -47,23 +48,14 @@ export default {
     }
   }
 }
-.nuxt-content h2 {
-  font-weight: bold;
-  font-size: 28px;
-}
-.nuxt-content h3 {
-  font-weight: bold;
-  font-size: 22px;
-}
-.nuxt-content p {
-  margin-bottom: 20px;
-}
+
 ::v-deep .icon.icon-link {
   background-image: url("~assets/icon-hashtag.svg");
   display: inline-block;
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
+
 }
 .backto{
   display: inline-block;
@@ -73,6 +65,7 @@ export default {
   height: 20px;
   background-image: url('~assets/icon-arrow-left.svg');
 }
+
 </style> 
 
 

@@ -1,5 +1,6 @@
 <template>
   <div class="outer">
+
     <div class="wrapper">
       <div class="content-row">
         <el-card class="box-card cover-card" shadow="never">
@@ -52,7 +53,7 @@
       </el-card>
       </div>
     </div>
-
+  
   </div>
 </template>
 

@@ -3,11 +3,24 @@ html,body{
     padding: 0;
   }
   body{
-    height: 1200px;
+    min-height: 800px;
     font-family: 'OPPOSANS';
     background: #f4f6f8;
   }
   @font-face {
     font-family: OPPOSANS;
     src: url('~static/OPPOSans-M.ttf');
+  }
+  .nuxt-content h2 {
+    font-weight: bold;
+    font-size: 28px;
+  }
+  .nuxt-content h3 {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  .nuxt-content p {
+
+    text-indent: 0.8cm;
+    margin-bottom: 20px;
   }
