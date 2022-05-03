@@ -1,6 +1,6 @@
 <template>
   <div class="outer">
-
+ 
     <div class="wrapper">
       <div class="content-row">
         <el-card class="box-card cover-card" shadow="never">
@@ -63,6 +63,7 @@ export default {
   data() {
     return {
       date: "",
+      loading:true
     };
   },
 
@@ -106,6 +107,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .outer {
   display: flex;

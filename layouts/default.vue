@@ -1,44 +1,63 @@
 <template>
   <div>
-    <div class="frosted"></div>
-    <nav>
-      <i class="icon-logo"></i>
-    </nav>
+    <Indicator v-if="loading" />
+    <div v-if="!loading">
+      <div class="frosted"></div>
+      <nav>
+        <i class="icon-logo"></i>
+      </nav>
 
-    <div class="nuxt-slot">
-      <Nuxt />
+      <div class="nuxt-slot">
+        <Nuxt />
+      </div>
+      <footer>
+        <div class="logo">
+          <img src="/blog.png" width="80px" />
+          <span> | 想法,代码与日常 <small>2022 </small></span>
+        </div>
+      </footer>
     </div>
-        <footer>
-    <div class="logo">
-       <img src="/blog.png" width="80px"/>
-       <span> | 想法,代码与日常 <small>2022  </small></span>
-    </div>
-  
-  </footer>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      loading: true,
+    };
   },
   created() {
-    if(process.client){
-         var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?256819b8e1b83e81b6d489dfe92f4316";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    if (process.client) {
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+
+        hm.src = "https://hm.baidu.com/hm.js?256819b8e1b83e81b6d489dfe92f4316";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
     }
- 
+  },
+  mounted() {
+    console.log("mounted");
+    let that = this;
+    document.onreadystatechange = function () {
+      if (document.readyState == "complete") {
+        console.log(that);
+        //that的作用存储vue示例 在此函数本来是this=document
+        //通过that间接访问Vue实例
+        that.loading = false;
+
+        // 页面加载完毕
+        console.log("complete");
+      }
+    };
   },
 };
 </script>
 
-<style lang='scss' scoped >
+<style lang="scss" scoped>
 .frosted {
   z-index: 2;
   position: fixed;
@@ -65,7 +84,7 @@ nav {
 }
 
 .icon-logo {
-  background: url('/blog.png');
+  background: url("/blog.png");
   display: inline-block;
   height: 40px;
   width: 80px;
@@ -78,19 +97,17 @@ nav {
   width: 100%;
   top: 0;
 }
-footer{
+footer {
   background: #fff;
   height: 140px;
   margin-top: 80px;
   display: flex;
   align-items: center;
 }
-footer .logo{
-    margin-left: 40px;
-  }
-span{
+footer .logo {
+  margin-left: 40px;
+}
+span {
   vertical-align: super;
 }
-  
-
 </style>
