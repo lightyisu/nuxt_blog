@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Indicator v-if="loading" />
-    <div v-if="!loading">
+  
+    <div >
       <div class="frosted"></div>
       <nav>
         <i class="icon-logo"></i>
@@ -39,25 +39,7 @@ export default {
       })();
     }
   },
-  mounted() {
-    console.log("mounted");
-    let that = this;
-    if (document.readyState == "complete") {
-      that.loading = false;
-    } else {
-      document.onreadystatechange = function () {
-        if (document.readyState == "complete") {
-          console.log(that);
-          //that的作用存储vue示例 在此函数本来是this=document
-          //通过that间接访问Vue实例
-          that.loading = false;
-
-          // 页面加载完毕
-          console.log("complete");
-        }
-      };
-    }
-  },
+ 
 };
 </script>
 
