@@ -1,6 +1,8 @@
 ---
 title: 我是如何构建这个博客的
 description:  关于博客
+createdDate: 2022/05/25
+updateDate: 2022/05/25
 
 ---
 ## 来历

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Indicator v-show="loading" />
-    <div v-show="!loading">
+   
+    <div >
       <div class="frosted"></div>
       <nav>
         <i class="icon-logo"></i>
@@ -23,9 +23,9 @@
 <script>
 export default {
   data() {
-    return {
-      loading: true,
-    };
+    return{
+      
+    }
   },
   created() {
     if (process.client) {
@@ -40,7 +40,7 @@ export default {
     }
   },
   mounted() {
-    console.log("mounted");
+   /* console.log("mounted");
     let that = this;
     if(document.readyState=='complete'){
          that.loading = false;
@@ -56,7 +56,7 @@ export default {
         console.log("complete");
       }
     };
-    }
+    }*/
 
   },
 };

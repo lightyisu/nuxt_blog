@@ -24,7 +24,7 @@
   "devDependencies": {
     "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
-    "sass": "^1.50.1",
+    "sass": "~1.32.6",
     "sass-loader": "10"
   }
 }

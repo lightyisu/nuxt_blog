@@ -1,14 +1,19 @@
 <template>
   <div class="outer">
- 
+    <Search ref="search" />
+    <div class="toolbar">
+      <div class="content">
+        <el-button
+          @click.native="openSearch"
+          round
+          icon="el-icon-search"
+          size="small"
+          >搜索</el-button
+        >
+      </div>
+    </div>
     <div class="wrapper">
       <div class="content-row">
-        <el-card class="box-card cover-card" shadow="never">
-          <video width="100%" autoplay muted loop>
-            <source src="~/assets/welcome.mp4" />
-          </video>
-        </el-card>
-
         <el-card
           v-for="(item, index) in col1Arr"
           :key="index"
@@ -47,13 +52,22 @@
             <el-button>GO</el-button></nuxt-link
           >
         </el-card>
-               <el-card shadow="never" class="card-info box-card">
-        <el-image src="/nuxt-logo.svg" fit="contain" />
-        <span :style="{ fontSize: '16px' }">SSG/Directus Cloud</span>
-      </el-card>
+        <!--  <el-card shadow="never" class="card-info box-card">
+          <el-image src="/nuxt-logo.svg" fit="contain" />
+          <span :style="{ fontSize: '16px' }">SSG/Directus Cloud</span>
+        </el-card>-->
       </div>
     </div>
-  
+    <div class="pagination">
+      <el-pagination
+        background
+        :page-size="3"
+        @current-change="updatePostList"
+        layout="prev, pager, next"
+        :total="posts_length"
+      >
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -63,7 +77,8 @@ export default {
   data() {
     return {
       date: "",
-      loading:true
+      col1Arr: "",
+      col2Arr: "",
     };
   },
 
@@ -76,18 +91,50 @@ export default {
       return numberToCN[this.date];
     },
   },
+  methods: {
+    openSearch() {
+      this.$refs.search.show = true;
+    },
+    async updatePostList(num) {
+      const offset = 3;
+      const articles = await this.$content("articles")
+        .only(["title", "slug", "description"])
+        .skip(offset * (num - 1))
+        .limit(offset)
+        .fetch();
+
+      this.col1Arr = articles.filter((item, index) => {
+        if (index % 2 == 0) {
+          return true;
+        }
+      });
+      this.col2Arr = articles.filter((item, index) => {
+        if (index % 2 != 0) {
+          return true;
+        }
+      });
+    },
+  },
 
   async asyncData({ app, $content, parames }) {
-    let res = await $content("articles").fetch();
-
-    const fs = require("fs");
-    await fs.writeFile("static/font.txt", JSON.stringify(res), (err) => {
-      console.log(err);
-    });
+    if (!process.client) {
+      let res = await $content("articles").fetch();
+      const fs = require("fs");
+      await fs.writeFile("static/font.txt", JSON.stringify(res), (err) => {
+        console.log(err);
+      });
+    }
 
     const articles = await $content("articles")
       .only(["title", "slug", "description"])
+      .skip(0)
+      .limit(3)
       .fetch();
+    
+    const { length: posts_length } = await $content("articles")
+      .only(["title"])
+      .fetch();
+   
     const col1Arr = articles.filter((item, index) => {
       if (index % 2 == 0) {
         return true;
@@ -100,6 +147,7 @@ export default {
     });
 
     return {
+      posts_length,
       articles,
       col1Arr,
       col2Arr,
@@ -110,10 +158,20 @@ export default {
 
 <style lang="scss" scoped>
 .outer {
+  margin-top: 80px;
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
+}
+.toolbar {
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+  .content {
+    width: 620px;
+    display: inline-block;
+  }
 }
 .wrapper {
   display: flex;
@@ -121,13 +179,10 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   .content-row {
-    margin-top: 80px;
-    @media screen and (max-width:600px) {
-      &:nth-of-type(2){
-          margin-top: 0px;
+    @media screen and (max-width: 600px) {
+      &:nth-of-type(2) {
+        margin-top: 0px;
       }
-    
-      
     }
     flex-direction: column;
     display: flex;
@@ -165,12 +220,18 @@ export default {
     border-radius: 20px;
   }
 
-  margin: 20px 0;
+  margin-bottom: 20px;
   width: 300px;
 
   display: inline-block;
   border-radius: 10px;
 }
-
-
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  .el-pagination {
+    display: inline-block;
+  }
+}
 </style>

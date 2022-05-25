@@ -1,6 +1,8 @@
 ---
 description: 关于今天的日记
 title: 今日日记
+createdDate: 2022/05/25
+updateDate: 2022/05/25
 
 ---
 **今天真棒**
