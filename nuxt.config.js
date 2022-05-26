@@ -10,9 +10,10 @@ export default {
     },
     meta: [
       { charset: "utf-8" },
+      {name:"title",content:"f2v2.com - 代码与想法"},
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "F2V2博客,代码与想法" },
-      { name:'keywords',content:'f2v2,lightyisu,vue,博客,前端'},
+      { hid: "description", name: "description", content: "F2V2博客,代码与想法,个人博客,一个关于前端及其围绕周边的记录博客" },
+      { name:'keywords',content:'f2v2,博客,前端,lightyisu,vue'},
       { name: "format-detection", content: "telephone=no" },
     ],
   
@@ -50,6 +51,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS:{allChunks:true},
     transpile: [/^element-ui/],
     extend(config, {isDev,isClient}) {
       config.node = {
