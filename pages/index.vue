@@ -30,7 +30,11 @@
         </el-card>
       </div>
       <div class="content-row">
-        <el-card class="box-card text-cover" shadow="never">
+        <el-card
+          v-show="greetingshow"
+          class="box-card text-cover"
+          shadow="never"
+        >
           <h1>Today is a good day</h1>
           <p>
             今天是美好的<span class="highlight-red">星期{{ getDay }}</span>
@@ -72,6 +76,7 @@
 </template>
 
 <script>
+import { Loading } from "element-ui";
 export default {
   name: "IndexPage",
   data() {
@@ -79,6 +84,7 @@ export default {
       date: "",
       col1Arr: "",
       col2Arr: "",
+      greetingshow: true,
     };
   },
 
@@ -96,13 +102,27 @@ export default {
       this.$refs.search.show = true;
     },
     async updatePostList(num) {
+      if (num == 1) {
+        this.greetingshow = true;
+      } else {
+        this.greetingshow = false;
+      }
       const offset = 3;
+      let loadingInstance = Loading.service({ fullscreen: true, lock: true });
       const articles = await this.$content("articles")
         .only(["title", "slug", "description"])
         .skip(offset * (num - 1))
         .limit(offset)
         .fetch();
-
+      const delay = await new Promise((res, rej) => {
+        setTimeout(() => {
+          res(2);
+        }, 400);
+      });
+      this.$nextTick(() => {
+        loadingInstance.close();
+        window.scrollTo(0, 0);
+      });
       this.col1Arr = articles.filter((item, index) => {
         if (index % 2 == 0) {
           return true;
@@ -130,11 +150,11 @@ export default {
       .skip(0)
       .limit(3)
       .fetch();
-    
+
     const { length: posts_length } = await $content("articles")
       .only(["title"])
       .fetch();
-   
+
     const col1Arr = articles.filter((item, index) => {
       if (index % 2 == 0) {
         return true;
@@ -168,7 +188,13 @@ export default {
   display: flex;
   margin: 20px 0;
   justify-content: center;
+
   .content {
+    @media only screen and (max-width: 640px) {
+            &{
+              width: 302px;
+            }
+    }
     width: 620px;
     display: inline-block;
   }

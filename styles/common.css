@@ -1,6 +1,7 @@
 html,body{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
   }
   body{
     min-height: 300px;
@@ -20,7 +21,8 @@ html,body{
     font-size: 22px;
   }
   .nuxt-content p {
-
+    font-size: 15px;
+    word-break: break-all;
     line-height: 1.5;
     margin-bottom: 20px;
   }

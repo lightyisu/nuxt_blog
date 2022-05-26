@@ -8,10 +8,10 @@
         {{ article.title }}
       </h1>
       <h4 class="time">
-        <span class="time-wrapper">created At </span>{{ article.createdDate }}
+        <span class="time-wrapper">created At : </span>{{ article.createdDate }}
       </h4>
       <h4 class="time">
-        <span class="time-wrapper">updated At </span>{{ article.updateDate }}
+        <span class="time-wrapper">updated At : </span>{{ article.updateDate }}
       </h4>
 
       <br />
@@ -84,6 +84,7 @@ export default {
     }
  
     .content-card {
+      text-align: justify;
       width: 800px;
       @media screen and (max-width: 600px) {
         width: 90vw;
@@ -112,11 +113,11 @@ h4 {
   margin: 8px 0px;
 }
 .time-wrapper {
-  background: rgb(247, 74, 74);
+  background: rgb(36, 36, 36);
   color: #fff;
   font-size: 12px;
-  padding: 2px;
-  border-radius: 4px;
+  padding: 4px ;
+  
   margin-right: 5px;
 }
 ::v-deep .el-collapse-item__header{
