@@ -87,7 +87,7 @@ export default {
       text-align: justify;
       width: 800px;
       @media screen and (max-width: 600px) {
-        width: 90vw;
+        width: 95vw;
         margin-bottom: 100px;
       }
     }
