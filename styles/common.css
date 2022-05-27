@@ -12,13 +12,17 @@ html,body{
     font-family: MISANS;
     src: url('~static/MiSans-Normal.ttf');
   }
+  .nuxt-content{
+    word-break: break-all;
+    
+  }
   .nuxt-content h2 {
     font-weight: bold;
-    font-size: 28px;
+    font-size: 24px;
   }
   .nuxt-content h3 {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
   }
   .nuxt-content p {
     font-size: 16px;
