@@ -135,12 +135,12 @@ export default {
   async asyncData({ app, $content, parames }) {
     if (!process.client) {
       let res = await $content("articles").fetch();
+
       const fs = require("fs");
       await fs.writeFile("static/font.txt", JSON.stringify(res), (err) => {
         console.log(err);
       });
     }
-
     const articles = await $content("articles")
       .only(["title", "slug", "description"])
       .skip(0)
