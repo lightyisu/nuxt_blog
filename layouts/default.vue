@@ -14,6 +14,11 @@
         <div class="logo">
           <img src="/blog.png" width="80px" />
           <span> | 想法,代码与日常 <small>&copy;2022</small></span>
+          <p class="enable_font">
+            
+            Fonts Enhanced By <a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854">
+              MISans
+            </a> </p>
         </div>
       </footer>
     </div>
@@ -114,5 +119,13 @@ footer .logo {
 }
 span {
   vertical-align: super;
+}
+.enable_font{
+  margin: 10px 0;
+  padding: 0;
+  font-size: 14px;
+  a{
+    color: black;
+  }
 }
 </style>

@@ -5,12 +5,12 @@ html,body{
   }
   body{
     min-height: 300px;
-    font-family: 'OPPOSANS';
+    font-family: 'MISANS';
     background: #f4f6f8;
   }
   @font-face {
-    font-family: OPPOSANS;
-    src: url('~static/OPPOSans-M.ttf');
+    font-family: MISANS;
+    src: url('~static/MiSans-Normal.ttf');
   }
   .nuxt-content h2 {
     font-weight: bold;
@@ -21,8 +21,12 @@ html,body{
     font-size: 22px;
   }
   .nuxt-content p {
-    font-size: 15px;
+    font-size: 16px;
     word-break: break-all;
     line-height: 1.5;
     margin-bottom: 20px;
+  }
+  code{
+    font-family:'Microsoft YaHei';
+    font-size: 14px;
   }

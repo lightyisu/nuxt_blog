@@ -31,7 +31,7 @@
       </div>
       <div class="content-row">
         <el-card
-          v-show="greetingshow"
+        
           class="box-card text-cover"
           shadow="never"
         >
@@ -84,7 +84,7 @@ export default {
       date: "",
       col1Arr: "",
       col2Arr: "",
-      greetingshow: true,
+    
     };
   },
 
@@ -102,11 +102,7 @@ export default {
       this.$refs.search.show = true;
     },
     async updatePostList(num) {
-      if (num == 1) {
-        this.greetingshow = true;
-      } else {
-        this.greetingshow = false;
-      }
+      
       const offset = 5;
       let loadingInstance = Loading.service({ fullscreen: true, lock: true });
       const articles = await this.$content("articles")
