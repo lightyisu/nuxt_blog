@@ -65,7 +65,7 @@
     <div class="pagination">
       <el-pagination
         background
-        :page-size="3"
+        :page-size="5"
         @current-change="updatePostList"
         layout="prev, pager, next"
         :total="posts_length"
@@ -107,7 +107,7 @@ export default {
       } else {
         this.greetingshow = false;
       }
-      const offset = 3;
+      const offset = 5;
       let loadingInstance = Loading.service({ fullscreen: true, lock: true });
       const articles = await this.$content("articles")
         .only(["title", "slug", "description"])
@@ -148,7 +148,7 @@ export default {
     const articles = await $content("articles")
       .only(["title", "slug", "description"])
       .skip(0)
-      .limit(3)
+      .limit(5)
       .fetch();
 
     const { length: posts_length } = await $content("articles")
