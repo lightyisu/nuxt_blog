@@ -1,3 +1,4 @@
+import getRoutes from "./utils/getRoutes";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -10,18 +11,18 @@ export default {
     },
     meta: [
       { charset: "utf-8" },
-      {name:"title",content:"f2v2.com - 代码与想法"},
+      { name: "title", content: "f2v2.com - 代码与想法" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "F2V2博客,代码与想法,个人博客,一个关于前端及其围绕周边的记录博客" },
-      { name:'keywords',content:'f2v2,博客,前端,lightyisu,vue'},
+      { name: 'keywords', content: 'f2v2,博客,前端,lightyisu,vue' },
       { name: "format-detection", content: "telephone=no" },
     ],
-  
+
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/styles/elementTheme.scss",'@/styles/common.css'],
+  css: ["@/styles/elementTheme.scss", '@/styles/common.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ["@/plugins/element-ui"],
@@ -38,6 +39,7 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/content
     "@nuxt/content",
+    "@nuxtjs/sitemap"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -49,17 +51,31 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
+  sitemap: {
+    hostname: 'https://www.f2v2.com',
+    gzip: true,
+    exclude: ['/404'],
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    },
+    routes(){
+      return getRoutes();
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extractCSS:{allChunks:true},
+    extractCSS: { allChunks: true },
     transpile: [/^element-ui/],
-    extend(config, {isDev,isClient}) {
+    extend(config, { isDev, isClient }) {
       config.node = {
         fs: "empty",
       };
-    
-      
-   
+
+
+
     },
   },
 };
