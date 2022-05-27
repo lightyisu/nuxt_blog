@@ -11,7 +11,7 @@ export default {
     },
     meta: [
       { charset: "utf-8" },
-      { name: "title", content: "f2v2.com - 代码与想法" },
+      { name: "title", content: "f2v2.com -lightyisu的个人博客 记录代码与想法" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "F2V2博客,代码与想法,个人博客,一个关于前端及其围绕周边的记录博客" },
       { name: 'keywords', content: 'f2v2,博客,前端,lightyisu,vue' },
