@@ -13,7 +13,7 @@
       <footer>
         <div class="logo">
           <img src="/blog.png" width="80px" />
-          <span> | 想法,代码与日常 <small>2022 </small>&copy;2022</span>
+          <span> | 想法,代码与日常 <small>&copy;2022</small></span>
         </div>
       </footer>
     </div>
