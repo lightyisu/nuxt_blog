@@ -5,7 +5,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "f2v2 -想法/代码/日常",
+    title: "f2v2 -lightyisu的个人博客 记录代码与想法",
     htmlAttrs: {
       lang: "en",
     },
