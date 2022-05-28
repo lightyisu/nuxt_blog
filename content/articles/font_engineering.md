@@ -15,7 +15,7 @@ updateDate: 2021/02/20
 
 ### GULP
 
-<img src='/images/gulp-ex2.PNG'/>
+<img src='http://image-f2v2.test.upcdn.net/gulp-ex2.PNG'/>
 
 用于前端自动化流程 类似于`npm script`
 

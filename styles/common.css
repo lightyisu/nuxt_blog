@@ -34,3 +34,6 @@ html,body{
     font-family:'Microsoft YaHei';
     font-size: 14px;
   }
+  .nuxt-content img{
+    width: 100%;
+  }
