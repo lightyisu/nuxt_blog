@@ -35,5 +35,5 @@ html,body{
     font-size: 14px;
   }
   .nuxt-content img{
-    width: 100%;
+    max-width: 100%;
   }
