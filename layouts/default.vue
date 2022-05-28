@@ -30,6 +30,12 @@
             </a>
             提供CDN加速/云存储服务
           </p>
+          <p class="friend_links">
+            本站图床域名提供 <a href="https://sltplan.com">Sltplan.com</a>
+          </p>
+          <p class="friend_links">
+            友情链接:<a href="https://tylk.cc/">Likai's Blog</a>
+          </p>
         </div>
       </footer>
     </div>
@@ -145,7 +151,7 @@ nav {
 }
 footer {
   background: #fff;
-  height: 140px;
+  height: 200px;
   margin-top: 80px;
   display: flex;
   align-items: center;
@@ -176,6 +182,13 @@ span {
     background: url('~assets/又拍云_logo2.png');
     background-repeat: no-repeat;
     background-size:100%;
+  }
+}
+.friend_links{
+  margin:5px 0;
+  font-size: 12px;
+  a{
+    color: black;
   }
 }
 </style>
