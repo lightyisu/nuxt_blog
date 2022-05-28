@@ -290,7 +290,7 @@ iconfont中产生的iconfont.js是已经具有symbol标签的svg文件
 
 主要因为+运算基于Number遇到字符串会变成NaN
 
-<img src='/images/str-logic.png'/>
+<img src='https://f2v2.sltplan.com/str-logic.png'/>
 
 !!+0===false（作用等于Boolean(0)）
 
@@ -338,7 +338,7 @@ path:'/xxx'的问题
 
 - #### url EncodeComponent类
 
-  <img src='/images/urlandencode.jpg'/>
+  <img src='https://f2v2.sltplan.com/urlandencode.jpg'/>
   
 
 ### Vue3

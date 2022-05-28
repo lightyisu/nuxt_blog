@@ -23,9 +23,12 @@
           <h2>
             {{ item.title }}
           </h2>
-          <p>{{ item.description }}</p>
+          <p class="time">
+            {{item.updateDate}}
+          </p>
+          <p class="desc">{{ item.description }}</p>
           <nuxt-link :to="'/blog/' + item.slug">
-            <el-button>GO</el-button>
+            <el-button size="mini">GO</el-button>
           </nuxt-link>
         </el-card>
       </div>
@@ -50,10 +53,13 @@
           <h2>
             {{ item.title }}
           </h2>
-          <p>{{ item.description }}</p>
+            <p class="time">
+            {{item.updateDate}}
+          </p>
+          <p class="desc">{{ item.description }}</p>
 
           <nuxt-link :to="'/blog/' + item.slug">
-            <el-button>GO</el-button></nuxt-link
+            <el-button size="mini">GO</el-button></nuxt-link
           >
         </el-card>
         <!--  <el-card shadow="never" class="card-info box-card">
@@ -77,6 +83,8 @@
 
 <script>
 import { Loading } from "element-ui";
+import {convert} from '~/utils/time.js'
+import dayjs from "dayjs";
 export default {
   name: "IndexPage",
   data() {
@@ -91,6 +99,9 @@ export default {
   created() {
     this.date = new Date().getDay();
   },
+  mounted(){
+    convert()
+  },  
   computed: {
     getDay() {
       const numberToCN = ["日", "一", "二", "三", "四", "五", "六"];
@@ -103,10 +114,10 @@ export default {
     },
     async updatePostList(num) {
       
-      const offset = 5;
+      const offset = 7;
       let loadingInstance = Loading.service({ fullscreen: true, lock: true });
       const articles = await this.$content("articles")
-        .only(["title", "slug", "description"])
+        .only(["title", "slug", "description","updateDate"])
         .skip(offset * (num - 1))
         .limit(offset)
         .fetch();
@@ -124,6 +135,9 @@ export default {
           return true;
         }
       });
+         this.col1Arr.sort((a,b)=>{
+        return dayjs(b.updateDate,'YYYY/MM/DD').unix()-dayjs(a.updateDate,'YYYY/MM/DD').unix();
+    })
       this.col2Arr = articles.filter((item, index) => {
         if (index % 2 != 0) {
           return true;
@@ -142,9 +156,9 @@ export default {
       });
     }
     const articles = await $content("articles")
-      .only(["title", "slug", "description"])
+      .only(["title", "slug", "description","updateDate"])
       .skip(0)
-      .limit(5)
+      .limit(7)
       .fetch();
 
     const { length: posts_length } = await $content("articles")
@@ -156,6 +170,9 @@ export default {
         return true;
       }
     });
+    col1Arr.sort((a,b)=>{
+        return dayjs(b.updateDate,'YYYY/MM/DD').unix()-dayjs(a.updateDate,'YYYY/MM/DD').unix();
+    })
     const col2Arr = articles.filter((item, index) => {
       if (index % 2 != 0) {
         return true;
@@ -188,10 +205,10 @@ export default {
   .content {
     @media only screen and (max-width: 640px) {
             &{
-              width: 302px;
+              width: 322px;
             }
     }
-    width: 620px;
+    width: 670px;
     display: inline-block;
   }
 }
@@ -212,13 +229,11 @@ export default {
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-right: 10px;
+    h2{
+      margin: 0;
 
-    .cover-card {
-      height: 200px;
-      ::v-deep .el-card__body {
-        padding: 0;
-      }
     }
+
     .text-cover {
       height: auto;
     }
@@ -235,15 +250,18 @@ export default {
   ::v-deep .el-button {
     background: #1e1d1d;
     display: block;
-    margin: 20px 0px;
+    margin: 10px 0px;
     padding: 10px 30px;
     color: #fff;
     border: none;
     border-radius: 20px;
+    &:hover{
+      background: rgb(68, 68, 68);
+    }
   }
 
   margin-bottom: 20px;
-  width: 300px;
+  width: 320px;
 
   display: inline-block;
   border-radius: 10px;
@@ -255,5 +273,17 @@ export default {
   .el-pagination {
     display: inline-block;
   }
+}
+.time{
+  font-size: 14px;
+  color: rgb(138, 135, 135);
+  &::before{
+    content: '|';
+    color: rgb(249, 49, 49);
+    font-weight: bold;
+  }
+}
+.desc{
+  color: rgb(96, 96, 96);
 }
 </style>

@@ -25,7 +25,10 @@ async function getSeverData() {
   data.data.forEach(async (item) => {
     const { title, content } = item;
     await fs.writeFile("content/articles/" + title + ".md", content, (err) => {
-      console.log(err);
+      if(err){
+        console.log(err);
+      }
+     
     });
   });
 }

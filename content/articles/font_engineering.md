@@ -15,7 +15,7 @@ updateDate: 2021/02/20
 
 ### GULP
 
-<img src='http://image-f2v2.test.upcdn.net/gulp-ex2.PNG'/>
+<img src='https://f2v2.sltplan.com/gulp-ex2.PNG'/>
 
 用于前端自动化流程 类似于`npm script`
 
@@ -49,7 +49,7 @@ gulp.task('watch',()=>{
 
 效果
 
-<img src='/images/gulp-ex1.PNG'/>
+<img src='https://f2v2.sltplan.com/gulp-ex1.PNG'/>
 
 ### VITE
 
