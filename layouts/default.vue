@@ -23,6 +23,13 @@
               MISans
             </a>
           </p>
+          <p class="upyun">
+            本网站由
+            <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+            <i class="upyun_logo"></i>
+            </a>
+            提供CDN加速/云存储服务
+          </p>
         </div>
       </footer>
     </div>
@@ -71,6 +78,7 @@ export default {
       }
     };
     }*/
+    
     window.onscroll = () => {
       let pageYOffset =
         document.documentElement.scrollTop ||
@@ -149,11 +157,25 @@ span {
   vertical-align: super;
 }
 .enable_font {
-  margin: 10px 0;
+  margin: 0;
+  margin-top: 10px;
   padding: 0;
   font-size: 14px;
   a {
     color: black;
+  }
+}
+.upyun{
+   font-size: 12px;
+  margin: 0;
+  .upyun_logo{
+    display: inline-block;
+    width: 70px;
+    height: 25px;
+    vertical-align: bottom;
+    background: url('~assets/又拍云_logo2.png');
+    background-repeat: no-repeat;
+    background-size:100%;
   }
 }
 </style>

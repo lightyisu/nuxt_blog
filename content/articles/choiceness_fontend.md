@@ -2,8 +2,8 @@
 title: '前端一揽子精选文章'
 date: '2022-01-11'
 tags: 'others' 
-createdDate: 2022/05/25
-updateDate: 2022/05/25
+createdDate: 2022/01/11
+updateDate: 2022/01/11
 
 
 ---
@@ -215,3 +215,10 @@ https://juejin.cn/post/6844904084885995528
   }
 </style>
 ```
+
+<img src='/images/css-1.PNG'/>
+
+**原因：第一个元素基线是子元素”文本“的基线，也就是基于we的baseline基线，而第二个是盒子的底边缘作为baseline，默认基线对齐，两个元素基线位置不一致，所有会产生上图现象**
+
+
+
