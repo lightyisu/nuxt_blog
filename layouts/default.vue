@@ -4,7 +4,10 @@
       <div>
         <div :class="{ frosted: true, invisible: !showNav }"></div>
         <nav :class="{ invisible: !showNav }">
-          <i class="icon-logo"></i>
+          <Nuxt-link to='/'>
+             <i class="icon-logo"></i>
+          </Nuxt-link>
+         
         </nav>
       </div>
 
@@ -133,6 +136,9 @@ nav {
   height: 70px;
 
   z-index: 10;
+}
+.nuxt-slot{
+  margin-top: 70px;
 }
 
 .icon-logo {

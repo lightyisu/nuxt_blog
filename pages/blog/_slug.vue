@@ -109,16 +109,18 @@ export default {
   height: 20px;
   background-image: url("~assets/icon-arrow-left.svg");
 }
-h4 {
-  margin: 8px 0px;
-}
-.time-wrapper {
-  background: rgb(36, 36, 36);
-  color: #fff;
-  font-size: 12px;
-  padding: 4px ;
-  
-  margin-right: 5px;
+
+
+.time{
+   margin: 8px 0px;
+
+  &::before{
+    content: '|';
+    color: rgb(240, 40, 40);
+    font-weight:800;
+    margin-right: 10px;
+  }
+
 }
 ::v-deep .el-collapse-item__header{
   padding: 0px 10px;
@@ -141,4 +143,5 @@ h4 {
     margin-left: 6px;
   }
 }
+
 </style>

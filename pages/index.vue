@@ -10,6 +10,12 @@
           size="small"
           >搜索</el-button
         >
+            <el-button  @click.native="goArchive" size="small" icon="el-icon-files" round>
+            
+                归档
+              (TimeLine)
+          
+            </el-button>
       </div>
     </div>
     <div class="wrapper">
@@ -109,8 +115,9 @@ export default {
     },
   },
   methods: {
-    openSearch() {
-      this.$refs.search.show = true;
+   
+    goArchive(){
+      this.$router.push('/archive')
     },
     async updatePostList(num) {
       

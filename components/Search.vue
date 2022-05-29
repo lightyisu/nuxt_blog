@@ -11,9 +11,9 @@
       <div class="result">
           <ul>
             <li v-for="(post,index) in results" :key="index">
-            <router-link :to="'/blog/'+post.slug">
+            <nuxt-link :to="'/blog/'+post.slug">
               {{post.title}}
-              </router-link>  
+              </nuxt-link>  
           
             </li>
           </ul>
