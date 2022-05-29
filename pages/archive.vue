@@ -1,12 +1,24 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <h2>归档 <i class="rocket"></i></h2>
-      <el-collapse v-model="activeNames" @change="handleChange">
-        <el-collapse-item title="2022" name="2022"> dw </el-collapse-item>
+      <h2>  <nuxt-link to="/">
+        <i class="backto"></i>
+      </nuxt-link>归档 (Timeline) <i class="rocket"></i></h2>
+      <el-collapse  v-model="activeNames">
+        <el-collapse-item  v-for='(group,index) in assembleArr' :name='index' :key="index" :title="group.group" > 
+          <ul class="posts">
+            <li v-for="post in group.sub" :key="post.slug">
+              <Nuxt-link :to="'/blog/'+post.slug">
+                 {{post.title}} <small class="time">{{post.updateDate}}</small>
+              </Nuxt-link>  
+            </li>
+          </ul>
+
+        </el-collapse-item>
       </el-collapse>
-      <pre>{{ res }}</pre>
-      <pre>{{yearGroup}}</pre>
+  
+  <!--
+      <pre>{{assembleArr}}</pre>-->
     </div>
   </div>
 </template>
@@ -14,6 +26,11 @@
 <script>
 import dayjs from "dayjs";
 export default {
+  data(){
+    return{
+       activeNames: [0]
+    }
+  },
   async asyncData({ app, $content, parames }) {
     let res = await $content("articles")
       .only(["title", "slug", "updateDate"])
@@ -30,11 +47,18 @@ export default {
         (item.year = dayjs(item.updateDate, "YYYY/MM/DD").format("YYYY"))
     );
     let yearArr=[...new Set(res.map((item)=>item.year))];
-
+    let assembleArr=yearArr.map((item)=>{return {group:item,sub:[]}})
+    res.map((item)=>{
+       let {0:groupObj}= assembleArr.filter((nest_item)=>{
+           return nest_item.group==item.year
+        })
+        groupObj.sub.push(item)
+    })
 
     return {
       res,
- 
+   
+      assembleArr
     };
   },
 };
@@ -62,5 +86,43 @@ export default {
     background: url("~/assets/icon-archive.svg");
     background-size: contain;
   }
+  .posts{
+    list-style: none;
+    font-size: 16px;
+    li{
+    
+      &::before{
+        content: '>';
+        color: rgb(247, 71, 71);
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      &:hover{
+        background:rgb(247, 71, 71) ;
+     
+       a{
+          color: #fff !important;
+       } 
+      }
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    
+    }
+  }
 }
+.backto {
+  display: inline-block;
+  width: 20px;
+
+  margin: 0px 10px;
+  height: 20px;
+  background-image: url("~assets/icon-arrow-left.svg");
+
+}
+.time{
+  margin: 0 10px;
+}
+
 </style>

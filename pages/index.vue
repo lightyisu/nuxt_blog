@@ -115,7 +115,9 @@ export default {
     },
   },
   methods: {
-   
+ openSearch() {
+      this.$refs.search.show = true;
+    },
     goArchive(){
       this.$router.push('/archive')
     },
