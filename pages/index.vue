@@ -1,4 +1,9 @@
 <template>
+<div>
+  <div class="bg-cover" ref='bg_cover'>
+
+  </div>
+
   <div class="outer">
     <Search ref="search" />
     <div class="toolbar">
@@ -85,11 +90,13 @@
       </el-pagination>
     </div>
   </div>
+</div>
+
 </template>
 
 <script>
 import { Loading } from "element-ui";
-import {convert} from '~/utils/time.js'
+
 import dayjs from "dayjs";
 export default {
   name: "IndexPage",
@@ -106,7 +113,15 @@ export default {
     this.date = new Date().getDay();
   },
   mounted(){
-    convert()
+    let imageSrc='https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1636387200000/54wz922q7ye1u08b9i-1636444385036%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%20(26).jpg'
+    const realImg=new Image();
+    realImg.src=imageSrc;
+    realImg.onload=()=>{
+        this.$refs.bg_cover.style.filter='none';
+        let url=`url('${imageSrc}')`
+        this.$refs.bg_cover.style.backgroundImage=url;
+
+    }
   },  
   computed: {
     getDay() {
@@ -199,9 +214,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bg-cover{
+  background: url('https://f2v2.sltplan.com/compress_cover1.jpg');
+  background-size:  100%; 
+  min-width: 1200px;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -100;
+  top: 0;
+  overflow: hidden;
+  filter: blur(4px);
+}
 .outer {
-  margin-top: 80px;
+  padding-bottom: 70px;
   display: flex;
+
+
   width: 100%;
   flex-direction: column;
   justify-content: center;

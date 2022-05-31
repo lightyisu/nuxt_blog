@@ -138,7 +138,8 @@ nav {
   z-index: 10;
 }
 .nuxt-slot{
-  margin-top: 70px;
+ margin-top: 70px;
+ 
 }
 
 .icon-logo {
@@ -158,7 +159,7 @@ nav {
 footer {
   background: #fff;
   height: 200px;
-  margin-top: 80px;
+ 
   display: flex;
   align-items: center;
 }
