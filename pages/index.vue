@@ -110,7 +110,7 @@ export default {
     //异步加载图片 不阻塞首屏
     setTimeout(() => {
       let imageSrc =
-        "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1636387200000/54wz922q7ye1u08b9i-1636444385036%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%20(26).jpg";
+        "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1636387200000/rnm3upmziw5defvvgl-1636441210162%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%20(86).jpg"
       const realImg = new Image();
       realImg.src = imageSrc;
       realImg.onload = () => {
@@ -122,7 +122,7 @@ export default {
         }, 50);
      
       };
-    }, 0);
+    }, 2000);
   },
   computed: {
     getDay() {
@@ -221,7 +221,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-cover {
-  background: url("https://f2v2.sltplan.com/compress_cover1.jpg");
+  background: url("https://f2v2.sltplan.com/rnm3upmziw5defvvgl-1636441210162%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%20(86).jpg");
   background-size: 100%;
   min-width: 1200px;
   background-repeat: no-repeat;
