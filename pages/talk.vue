@@ -34,6 +34,12 @@ export default {
   justify-content: center;
 }
 .talk {
+  @media (max-width: 800px){
+      &{
+        width: 93vw;
+        padding: 0;
+      }
+  }
   width: 750px;
   padding: 40px 70px;
 }

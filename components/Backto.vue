@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="back_wrapper">
         <i @click="goback" class="backto"></i> 
   </div>
 </template>
@@ -14,6 +14,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
