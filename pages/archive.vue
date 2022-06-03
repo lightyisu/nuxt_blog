@@ -1,9 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <h2>  <nuxt-link to="/">
-        <i class="backto"></i>
-      </nuxt-link>归档 (Timeline) <i class="rocket"></i></h2>
+      <h2>  <Backto/>归档 (Timeline) <i class="rocket"></i></h2>
       <el-collapse  v-model="activeNames">
         <el-collapse-item  v-for='(group,index) in assembleArr' :name='index' :key="index" :title="group.group" > 
           <ul class="posts">
@@ -112,15 +110,7 @@ export default {
     }
   }
 }
-.backto {
-  display: inline-block;
-  width: 20px;
 
-  margin: 0px 10px;
-  height: 20px;
-  background-image: url("~assets/icon-arrow-left.svg");
-
-}
 .time{
   margin: 0 10px;
 }

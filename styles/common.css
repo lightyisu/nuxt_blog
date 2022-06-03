@@ -37,3 +37,22 @@ html,body{
   .nuxt-content img{
     max-width: 100%;
   }
+  .icon_logo{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    
+    background-size: 100% !important;
+  }
+  .douban_logo{
+    background: url('https://img9.doubanio.com/f/frodo/144e6fb7d96701944e7dbb1a9bad51bdb1debe29/pics/app/logo.png');
+  }
+  .backto {
+    display: inline-block;
+    width: 20px;
+  
+    margin: 10px 0;
+    height: 20px;
+    background-image: url("~assets/icon-arrow-left.svg");
+    cursor: pointer;
+  }

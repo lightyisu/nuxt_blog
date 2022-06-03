@@ -2,7 +2,7 @@
   <div>
     <div>
       <div>
-        <div :class="{ frosted: true, invisible: !showNav }"></div>
+      
         <nav :class="{ invisible: !showNav }">
           <Nuxt-link to='/'>
              <i class="icon-logo"></i>
@@ -109,18 +109,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.frosted {
-  transition: all 0.5s ease-in-out;
-  z-index: 2;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgb(207, 199, 199);
-}
+
 .invisible {
   transform: translateY(-70px);
 }
@@ -128,6 +117,7 @@ nav {
   transition: all 0.5s ease-in-out;
   display: flex;
   left: 0;
+  background: #fff;
   top: 0;
   justify-content: center;
   align-items: center;

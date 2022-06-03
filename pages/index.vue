@@ -21,6 +21,15 @@
           >
             归档 (TimeLine)
           </el-button>
+          <el-button
+            @click.native="goTalk"
+            size="small"
+            icon="el-icon-chat-line-round"
+            round
+          >
+            简言
+          </el-button>
+
         </div>
       </div>
       <div class="wrapper">
@@ -136,6 +145,9 @@ export default {
     },
     goArchive() {
       this.$router.push("/archive");
+    },
+    goTalk(){
+      this.$router.push("/talk");
     },
     async updatePostList(num) {
       const offset = 7;
