@@ -40,6 +40,14 @@
             友情链接:<a href="https://tylk.cc/">Likai's Blog</a>
           </p>
         </div>
+        <div class="gallery">
+          <p class="friend_links">
+            主页背景图来自 /
+            <i class="zs_logo"></i>
+            战双帕弥什
+          
+          </p>
+        </div>
       </footer>
     </div>
   </div>
@@ -128,7 +136,8 @@ nav {
   z-index: 10;
 }
 .nuxt-slot{
- margin-top: 70px;
+ margin: 70px 0px;
+ 
  
 }
 
@@ -148,10 +157,11 @@ nav {
 }
 footer {
   background: #fff;
-  height: 200px;
- 
+  height: 180px;
+  
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 20px 0;
 }
 footer .logo {
   margin-left: 40px;
@@ -181,11 +191,31 @@ span {
     background-size:100%;
   }
 }
+.zs_logo{
+      display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: bottom;
+    background: url('~assets/zs_icon.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+}
 .friend_links{
   margin:5px 0;
   font-size: 12px;
   a{
     color: black;
   }
+}
+//移动端暂不显示
+.gallery{
+  @media screen and (max-width:800px) {
+    &{
+      display: none;
+    }
+  }
+  margin-left: auto;
+  margin-right: 40px;
+  display: inline-block;
 }
 </style>
