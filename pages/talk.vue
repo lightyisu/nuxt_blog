@@ -5,13 +5,13 @@
     <h1> 简言(TALK) <i class="el-icon-chat-line-round"></i></h1>
       <el-card shadow="hover" v-for='(talk,index) in res.data' :key="index">
         <div slot="header">
-            <i :class="{douban_logo:talk.cite_site=='douban',icon_logo:true}"></i>
-            <a :href="talk.cite_link" target="_blank">查看原文(豆瓣)</a>
+            <i :class="{douban_logo:talk.cite_site=='douban',self:talk.cite_site=='other_site',icon_logo:true}"></i>
+            <a :href="talk.cite_link" target="_blank">查看原文</a>
              <span class="time">{{talk.created_time}}</span>
             </div>
-            <pre>{{talk.content}}</pre>
+          <pre>{{talk.content}}</pre>
       </el-card>
-    <!--  <pre>{{res}}</pre>-->
+   <!--<pre>{{res}}</pre>>--> 
     </div>
   </div>
 </template>
@@ -67,6 +67,13 @@ pre {
     background-size: contain;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='.15'%3E%3Cg transform='translate(1 4)'%3E%3Ccircle fill='%23494949' cx='5' cy='10' r='5'/%3E%3Cpath d='M1.726 7.698L9 0' stroke='%23494949' stroke-width='2'/%3E%3C/g%3E%3Cg transform='translate(13 4)'%3E%3Ccircle fill='%23494949' cx='5' cy='10' r='5'/%3E%3Cpath d='M1.726 7.698L9 0' stroke='%23494949' stroke-width='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
+}
+.self{
+ 
+  background: url('~assets/me.png');
+  background-size:100% !important;
+  height: 23px !important;
+
 }
 .time{
     vertical-align: super;
