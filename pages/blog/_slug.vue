@@ -15,36 +15,33 @@
       </h4>
 
       <br />
-  <el-collapse>
-    <el-collapse-item title="目录">
-       <div class="toc">
-       
-             <ul>
-            <li v-for='link in article.toc' :class="{'ml-2':link.depth==3}" :key='link.id'>
-          
-                  <NuxtLink :to="`#${link.id}`">{{link.text}}</NuxtLink>
-      
-            
-            </li>
-          </ul>
-         
-         
-        </div>
-    </el-collapse-item>
-  </el-collapse>
-  <br/>
-        
-        <el-card class="content-card">
-          <nuxt-content :document="article" />
-          <!-- <pre>
+      <el-collapse>
+        <el-collapse-item title="目录">
+          <div class="toc">
+            <ul>
+              <li
+                v-for="link in article.toc"
+                :class="{ 'ml-2': link.depth == 3 }"
+                :key="link.id"
+              >
+                <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </el-collapse-item>
+      </el-collapse>
+      <br />
+
+      <el-card class="content-card">
+        <nuxt-content :document="article" />
+        <!-- <pre>
           {{ article }}
            </pre>
           <pre>
          {{ article.toc }}
          </pre
           >-->
-        </el-card>
-      
+      </el-card>
     </article>
   </div>
 </template>
@@ -78,14 +75,13 @@ export default {
   article {
     display: inline-block;
     padding-top: 20px;
-    .content{
+    .content {
       display: flex;
-
     }
- 
+
     .content-card {
       text-align: justify;
-      width: 800px;
+      width: 1000px;
       @media screen and (max-width: 600px) {
         width: 95vw;
         margin-bottom: 100px;
@@ -110,38 +106,35 @@ export default {
   background-image: url("~assets/icon-arrow-left.svg");
 }
 
+.time {
+  margin: 8px 0px;
 
-.time{
-   margin: 8px 0px;
-
-  &::before{
-    content: '|';
+  &::before {
+    content: "|";
     color: rgb(240, 40, 40);
-    font-weight:800;
+    font-weight: 800;
     margin-right: 10px;
   }
-
 }
-::v-deep .el-collapse-item__header{
+::v-deep .el-collapse-item__header {
   padding: 0px 10px;
 }
 .toc {
   display: inline-block;
-  ul{
-    padding:0px 10px;
+  ul {
+    padding: 0px 10px;
     list-style: none;
-    li{
+    li {
       margin: 4px 0;
     }
   }
-  a{
+  a {
     text-decoration: none;
     color: black;
     font-size: 14px;
   }
-  .ml-2{
+  .ml-2 {
     margin-left: 6px;
   }
 }
-
 </style>
