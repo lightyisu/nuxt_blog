@@ -35,7 +35,7 @@ bower_components
 build/Release
 
 #nuxt-content
-content/articles/*.md
+#content/articles/*.md
 # Dependency directories
 node_modules/
 jspm_packages/
