@@ -22,7 +22,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/styles/elementTheme.scss", '@/styles/common.css'],
+  css: ["@/styles/elementTheme.scss", '@/styles/common.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ["@/plugins/element-ui"],
