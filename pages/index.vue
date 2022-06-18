@@ -29,13 +29,12 @@
           >
             简言
           </el-button>
-
         </div>
       </div>
       <div class="wrapper">
         <div class="content-row">
           <el-card
-            v-for="(item, index) in col1Arr"
+            v-for="(item, index) in articles"
             :key="index"
             class="box-card"
             shadow="never"
@@ -52,42 +51,11 @@
             </nuxt-link>
           </el-card>
         </div>
-        <div class="content-row">
-          <el-card class="box-card text-cover" shadow="never">
-            <h1>Today is a good day</h1>
-            <p>
-              今天是美好的<span class="highlight-red">星期{{ getDay }}</span>
-            </p>
-          </el-card>
-
-          <el-card
-            v-for="(item, index) in col2Arr"
-            :key="index"
-            class="box-card"
-            shadow="never"
-          >
-            <h2>
-              {{ item.title }}
-            </h2>
-            <p class="time">
-              {{ item.updateDate }}
-            </p>
-            <p class="desc">{{ item.description }}</p>
-
-            <nuxt-link :to="'/blog/' + item.slug">
-              <el-button size="mini">GO</el-button></nuxt-link
-            >
-          </el-card>
-          <!--  <el-card shadow="never" class="card-info box-card">
-          <el-image src="/nuxt-logo.svg" fit="contain" />
-          <span :style="{ fontSize: '16px' }">SSG/Directus Cloud</span>
-        </el-card>-->
-        </div>
       </div>
       <div class="pagination">
         <el-pagination
           background
-          :page-size="5"
+          :page-size="8"
           @current-change="updatePostList"
           layout="prev, pager, next"
           :total="posts_length"
@@ -109,6 +77,7 @@ export default {
       date: "",
       col1Arr: "",
       col2Arr: "",
+      articles: "",
     };
   },
 
@@ -119,17 +88,15 @@ export default {
     //异步加载图片 不阻塞首屏
     setTimeout(() => {
       let imageSrc =
-        "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1636387200000/rnm3upmziw5defvvgl-1636441210162%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%20(86).jpg"
+        "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1636387200000/rnm3upmziw5defvvgl-1636441210162%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%20(86).jpg";
       const realImg = new Image();
       realImg.src = imageSrc;
       realImg.onload = () => {
-        
         let url = `url('${imageSrc}')`;
         setTimeout(() => {
           this.$refs.bg_cover.style.filter = "none";
-           this.$refs.bg_cover.style.backgroundImage = url;
+          this.$refs.bg_cover.style.backgroundImage = url;
         }, 50);
-     
       };
     }, 2000);
   },
@@ -146,11 +113,11 @@ export default {
     goArchive() {
       this.$router.push("/archive");
     },
-    goTalk(){
+    goTalk() {
       this.$router.push("/talk");
     },
     async updatePostList(num) {
-      const offset = 7;
+      const offset = 8;
       let loadingInstance = Loading.service({ fullscreen: true, lock: true });
       const articles = await this.$content("articles")
         .only(["title", "slug", "description", "updateDate"])
@@ -166,21 +133,12 @@ export default {
         loadingInstance.close();
         window.scrollTo(0, 0);
       });
-      this.col1Arr = articles.filter((item, index) => {
-        if (index % 2 == 0) {
-          return true;
-        }
-      });
-      this.col1Arr.sort((a, b) => {
+      this.articles = articles;
+      this.articles.sort((a, b) => {
         return (
           dayjs(b.updateDate, "YYYY/MM/DD").unix() -
           dayjs(a.updateDate, "YYYY/MM/DD").unix()
         );
-      });
-      this.col2Arr = articles.filter((item, index) => {
-        if (index % 2 != 0) {
-          return true;
-        }
       });
     },
   },
@@ -197,35 +155,23 @@ export default {
     const articles = await $content("articles")
       .only(["title", "slug", "description", "updateDate"])
       .skip(0)
-      .limit(7)
+      .limit(8)
       .fetch();
 
     const { length: posts_length } = await $content("articles")
       .only(["title"])
       .fetch();
 
-    const col1Arr = articles.filter((item, index) => {
-      if (index % 2 == 0) {
-        return true;
-      }
-    });
-    col1Arr.sort((a, b) => {
+    articles.sort((a, b) => {
       return (
         dayjs(b.updateDate, "YYYY/MM/DD").unix() -
         dayjs(a.updateDate, "YYYY/MM/DD").unix()
       );
     });
-    const col2Arr = articles.filter((item, index) => {
-      if (index % 2 != 0) {
-        return true;
-      }
-    });
 
     return {
       posts_length,
       articles,
-      col1Arr,
-      col2Arr,
     };
   },
 };
@@ -274,16 +220,15 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   .content-row {
+    width: 660px;
     @media screen and (max-width: 600px) {
-      &:nth-of-type(2) {
-        margin-top: 0px;
-      }
+      width: 80vw;
     }
-    flex-direction: column;
-    display: flex;
-
     flex-wrap: wrap;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
     margin-right: 10px;
     h2 {
       margin: 0;
@@ -314,12 +259,16 @@ export default {
       background: rgb(68, 68, 68);
     }
   }
-
+  @media only screen and (max-width: 640px) {
+      & {
+        width: 80vw;
+      }
+    }
   margin-bottom: 20px;
   width: 320px;
 
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .pagination {
   margin-top: 40px;
