@@ -42,9 +42,9 @@
         </div>
         <div class="gallery">
           <p class="friend_links">
-            主页背景图来自 /
-            <i class="zs_logo"></i>
-            战双帕弥什
+            主页背景图来自Bing /
+            正在睡觉的母狮, 塞伦盖蒂国家公园
+            
           
           </p>
         </div>
