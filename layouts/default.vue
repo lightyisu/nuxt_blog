@@ -2,12 +2,12 @@
   <div>
     <div>
       <div>
-      
+
         <nav :class="{ invisible: !showNav }">
           <Nuxt-link to='/'>
-             <i class="icon-logo"></i>
+            <i class="icon-logo"></i>
           </Nuxt-link>
-         
+
         </nav>
       </div>
 
@@ -16,20 +16,22 @@
       </div>
       <footer>
         <div class="logo">
-          <img src="/blog.png" width="80px" />
-          <span> | 想法,代码与日常 <small>&copy;2022</small></span>
+          <img src="/newlogo.png" width="120px" />
+          <span> | 想法,代码与日常 <small>&copy;2022-2023</small></span>
+
+        </div>
+        <div class="gallery">
+          <p class="friend_links">
           <p class="enable_font">
             Fonts Enhanced By
-            <a
-              href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854"
-            >
+            <a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854">
               MISans
             </a>
           </p>
           <p class="upyun">
             本网站由
             <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
-            <i class="upyun_logo"></i>
+              <i class="upyun_logo"></i>
             </a>
             提供CDN加速/云存储服务
           </p>
@@ -39,13 +41,8 @@
           <p class="friend_links">
             友情链接:<a href="https://tylk.cc/">Likai's Blog</a>
           </p>
-        </div>
-        <div class="gallery">
-          <p class="friend_links">
-            主页背景图来自Bing /
-            正在睡觉的母狮, 塞伦盖蒂国家公园
-            
-          
+
+
           </p>
         </div>
       </footer>
@@ -95,7 +92,7 @@ export default {
       }
     };
     }*/
-    
+
     window.onscroll = () => {
       let pageYOffset =
         document.documentElement.scrollTop ||
@@ -117,105 +114,117 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .invisible {
   transform: translateY(-70px);
 }
+
 nav {
   transition: all 0.5s ease-in-out;
   display: flex;
   left: 0;
   background: #fff;
   top: 0;
-  justify-content: center;
+
+
   align-items: center;
   position: fixed;
   width: 100%;
-  height: 70px;
+  height: 75px;
 
   z-index: 10;
 }
-.nuxt-slot{
- margin: 70px 0px;
- 
- 
+
+.nuxt-slot {
+  margin: 70px 0px;
+
+
 }
 
 .icon-logo {
-  background: url("/blog.png");
+  background: url("/newlogo.png");
   display: inline-block;
-  height: 40px;
-  width: 80px;
+  height: 55px;
+  width: 120px;
+  margin-left: 4vw;
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
 .loading-page {
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
 }
+
 footer {
   background: #fff;
   height: 180px;
-  
+
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px 0;
 }
+
 footer .logo {
-  margin-left: 40px;
+  margin-left: 240px;
+  @media screen and (max-width:800px) {
+   margin-left: 20px;
+  }
 }
+
 span {
   vertical-align: super;
 }
+
 .enable_font {
   margin: 0;
   margin-top: 10px;
   padding: 0;
   font-size: 14px;
+
   a {
     color: black;
   }
 }
-.upyun{
-   font-size: 12px;
+
+.upyun {
+  font-size: 12px;
   margin: 0;
-  .upyun_logo{
+
+  .upyun_logo {
     display: inline-block;
     width: 70px;
     height: 25px;
     vertical-align: bottom;
     background: url('~assets/又拍云_logo2.png');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: 100%;
   }
 }
-.zs_logo{
-      display: inline-block;
-    width: 25px;
-    height: 25px;
-    vertical-align: bottom;
-    background: url('~assets/zs_icon.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-}
-.friend_links{
-  margin:5px 0;
+
+.friend_links {
+
   font-size: 12px;
-  a{
+
+  a {
     color: black;
   }
 }
+
 //移动端暂不显示
-.gallery{
+.gallery {
+  color: rgb(151, 150, 150);
+  a {
+    color: rgb(151, 150, 150);
+  }
   @media screen and (max-width:800px) {
-    &{
+    & {
       display: none;
     }
   }
+
   margin-left: auto;
-  margin-right: 40px;
+  margin-right: 200px;
   display: inline-block;
-}
-</style>
+}</style>

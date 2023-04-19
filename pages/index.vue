@@ -3,7 +3,7 @@
     <div class="bg-cover" ref="bg_cover"></div>
 
     <div class="outer">
-      <Search ref="search" />
+      <!-- <Search ref="search" />
       <div class="toolbar">
         <div class="content">
           <el-button
@@ -30,9 +30,9 @@
             简言
           </el-button>
         </div>
-      </div>
+      </div> -->
       <div class="wrapper">
-        <div class="content-row">
+        <!-- <div class="content-row">
           <el-card
             v-for="(item, index) in articles"
             :key="index"
@@ -50,18 +50,22 @@
               <el-button size="mini">GO</el-button>
             </nuxt-link>
           </el-card>
-        </div>
+        </div> -->
+        <el-card shadow="hover" class="box-card">
+          <div v-for="(item, index) in articles" :key="index" class="text item">
+            <nuxt-link :to="'/blog/' + item.slug">
+          <h2>  {{ item.title }} <span class="title_time">     {{ item.updateDate }}</span></h2>
+          </nuxt-link>
+          <el-divider />
+          </div>
+          <div class="pagination">
+            <el-pagination background :page-size="10" @current-change="updatePostList" layout="prev, pager, next"
+              :total="posts_length">
+            </el-pagination>
+          </div>
+        </el-card>
       </div>
-      <div class="pagination">
-        <el-pagination
-          background
-          :page-size="8"
-          @current-change="updatePostList"
-          layout="prev, pager, next"
-          :total="posts_length"
-        >
-        </el-pagination>
-      </div>
+
     </div>
   </div>
 </template>
@@ -88,7 +92,7 @@ export default {
     //异步加载图片 不阻塞首屏
     setTimeout(() => {
       let imageSrc =
-        "https://bing.com/th?id=OHR.LionessesNap_ZH-CN9240393299_1920x1080.jpg";
+        "";
       const realImg = new Image();
       realImg.src = imageSrc;
       realImg.onload = () => {
@@ -117,7 +121,7 @@ export default {
       this.$router.push("/talk");
     },
     async updatePostList(num) {
-      const offset = 8;
+      const offset = 10;
       let loadingInstance = Loading.service({ fullscreen: true, lock: true });
       const articles = await this.$content("articles")
         .only(["title", "slug", "description", "updateDate"])
@@ -155,7 +159,7 @@ export default {
     const articles = await $content("articles")
       .only(["title", "slug", "description", "updateDate"])
       .skip(0)
-      .limit(8)
+      .limit(10)
       .fetch();
 
     const { length: posts_length } = await $content("articles")
@@ -179,7 +183,7 @@ export default {
 
 <style lang="scss" scoped>
 .bg-cover {
-  background: url("https://bing.com/th?id=OHR.LionessesNap_ZH-CN9240393299_640x480.jpg");
+
   background-size: 100%;
   min-width: 1200px;
   background-repeat: no-repeat;
@@ -191,6 +195,7 @@ export default {
   overflow: hidden;
   filter: blur(4px);
 }
+
 .outer {
   padding-bottom: 70px;
   display: flex;
@@ -199,6 +204,7 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
+
 .toolbar {
   display: flex;
   margin: 20px 0;
@@ -210,26 +216,32 @@ export default {
         width: 322px;
       }
     }
+
     width: 670px;
     display: inline-block;
   }
 }
+
 .wrapper {
   display: flex;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+
   .content-row {
     width: 660px;
+
     @media screen and (max-width: 600px) {
       width: 80vw;
     }
+
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-  
+
     margin-right: 10px;
+
     h2 {
       margin: 0;
     }
@@ -237,16 +249,27 @@ export default {
     .text-cover {
       height: auto;
     }
+
     a {
       text-decoration: none;
       color: black;
     }
   }
+
   .highlight-red {
     color: rgb(252, 65, 65);
   }
+  .item{
+    margin: 40px 20px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
 }
+
 .box-card {
+
   ::v-deep .el-button {
     background: #1e1d1d;
     display: block;
@@ -255,39 +278,51 @@ export default {
     color: #fff;
     border: none;
     border-radius: 20px;
+
     &:hover {
       background: rgb(68, 68, 68);
     }
   }
-  @media only screen and (max-width: 640px) {
-      & {
-        width: 80vw;
-      }
-    }
-  margin-bottom: 20px;
-  width: 320px;
 
+  @media only screen and (max-width: 640px) {
+    & {
+      width: 80vw;
+    }
+  }
+
+  margin-bottom: 20px;
+  width: 40vw;
+  min-height: 800px;
+  margin-top: 70px;
   display: inline-block;
   border-radius: 8px;
 }
+
 .pagination {
   margin-top: 40px;
   display: flex;
   justify-content: center;
+
   .el-pagination {
     display: inline-block;
   }
 }
+
 .time {
   font-size: 14px;
   color: rgb(138, 135, 135);
+
   &::before {
     content: "|";
     color: rgb(249, 49, 49);
     font-weight: bold;
   }
 }
+.title_time{
+  color: #F16868;
+  font-size: 18px;
+  float: right;
+}
 .desc {
   color: rgb(96, 96, 96);
-}
-</style>
+}</style>
