@@ -16,8 +16,8 @@
       </div>
       <footer>
         <div class="logo">
-          <img src="/newlogo.png" width="120px" />
-          <span> | 想法,代码与日常 <small>&copy;2022-2023</small></span>
+          <img src="/rdna-logo.png" width="120px" />
+          <span> RDNA UNIVERSE | 想法,代码与日常 <small>&copy;2022-2023</small></span>
 
         </div>
         <div class="gallery">
@@ -141,11 +141,12 @@ nav {
 }
 
 .icon-logo {
-  background: url("/newlogo.png");
+  background: url("/rdna-logo.png");
   display: inline-block;
-  height: 55px;
-  width: 120px;
+  height: 50px;
+  width: 115px;
   margin-left: 4vw;
+  margin-top: 1vh;
   background-size: 100%;
   background-repeat: no-repeat;
 }

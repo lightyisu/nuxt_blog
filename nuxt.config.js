@@ -5,16 +5,16 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "f2v2 -lightyisu的个人博客 记录代码与想法",
+    title: "RDNA UNIVERSE -记录代码与想法",
     htmlAttrs: {
       lang: "en",
     },
     meta: [
       { charset: "utf-8" },
-      { name: "title", content: "f2v2.com -lightyisu的个人博客 记录代码与想法" },
+      { name: "title", content: "RDNA UNIVERSE -记录代码与想法" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "F2V2博客,代码与想法,个人博客,一个关于前端及其围绕周边的记录博客" },
-      { name: 'keywords', content: 'f2v2,博客,前端,lightyisu,vue' },
+      { hid: "description", name: "description", content: "RDNA UNIVERSE,代码与想法,个人博客,一个关于前端及其围绕周边的记录博客" },
+      { name: 'keywords', content: 'RNDA,RDNA.com.cn,博客,前端,lightyisu,vue' },
       { name: "format-detection", content: "telephone=no" },
     ],
 
@@ -52,7 +52,7 @@ export default {
   content: {},
 
   sitemap: {
-    hostname: 'https://www.f2v2.com',
+    hostname: 'https://www.rdna.com.cn',
     gzip: true,
     exclude: ['/404'],
     defaults: {
