@@ -5,7 +5,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "RDNA UNIVERSE -记录代码与想法",
+    title: "RDNA UNIVERSE",
     htmlAttrs: {
       lang: "en",
     },
