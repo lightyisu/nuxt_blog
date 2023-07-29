@@ -6,7 +6,7 @@
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider & nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate&& node ./script/fontmin.js ",
+    "generate": "set NODE_OPTIONS=--openssl-legacy-provider & nuxt generate&& node ./script/fontmin.js  ",
     "comment": "2023年由于Directus Cloud免费策略改变无法继续使用取消云获取文章的方式 改为本地书写,删除了gulp的使用"
   },
   "dependencies": {

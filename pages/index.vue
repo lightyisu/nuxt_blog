@@ -54,7 +54,7 @@
         <el-card shadow="hover" class="box-card">
           <div v-for="(item, index) in articles" :key="index" class="text item">
             <nuxt-link :to="'/blog/' + item.slug">
-          <h2>  {{ item.title }} <span class="title_time">     {{ item.updateDate }}</span></h2>
+          <p class="title">  {{ item.title }} <span class="title_time">     {{ item.updateDate }}</span></p>
           </nuxt-link>
           <el-divider />
           </div>
@@ -182,6 +182,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title{
+  font-size: 40rpx !important;
+}
 .bg-cover {
 
   background-size: 100%;
@@ -319,8 +322,8 @@ export default {
   }
 }
 .title_time{
-  color: #F16868;
-  font-size: 18px;
+  color: #ee8a8a;
+  font-size: 16px;
   float: right;
 }
 .desc {

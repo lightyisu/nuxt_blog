@@ -10,7 +10,7 @@ html,body{
   }
   @font-face {
     font-family: MISANS;
-    src: url('~static/MiSans-Normal.ttf');
+    src: url('~static/OPlusSans3-Medium.ttf');
   }
   .nuxt-content{
     word-break: break-all;
@@ -31,9 +31,9 @@ html,body{
       }
     }
     text-indent: 2em;
-    font-size: 17px;
+    font-size: 16px;
     word-break: break-all;
-    line-height: 1.5;
+    line-height: 24px;
     margin-bottom: 20px;
   }
   code{

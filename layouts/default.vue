@@ -16,16 +16,16 @@
       </div>
       <footer>
         <div class="logo">
-          <img src="/rdna-logo.png" width="120px" />
-          <span> RDNA UNIVERSE | 想法,代码与日常 <small>&copy;2022-2023</small></span>
+          <img src="/rdna-logo.png" width="140px" />
+          <span> | 想法,代码与日常 <small>&copy;2022-2023</small></span>
 
         </div>
         <div class="gallery">
           <p class="friend_links">
           <p class="enable_font">
             Fonts Enhanced By
-            <a href="https://web.vip.miui.com/page/info/mio/mio/detail?postId=33935854">
-              MISans
+            <a style="color: rgb(15, 136, 15);font-weight: bold;" href="http://www.hanyi.com.cn/weixin/h5/CustomizedFont/OPPOSans.php">
+              OPPO Sans 3.0
             </a>
           </p>
           <p class="upyun">
@@ -141,13 +141,13 @@ nav {
 }
 
 .icon-logo {
-  background: url("/rdna-logo.png");
+  background: url("/headlogo.png");
   display: inline-block;
   height: 50px;
-  width: 115px;
-  margin-left: 4vw;
+  width: 190px;
+  margin-left: 8vw;
   margin-top: 1vh;
-  background-size: 100%;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 

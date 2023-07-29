@@ -74,6 +74,7 @@ export default {
   justify-content: center;
   article {
     display: inline-block;
+ 
     padding-top: 20px;
     .content {
       display: flex;
@@ -82,6 +83,7 @@ export default {
     .content-card {
       text-align: justify;
       width: 1000px;
+      
       @media screen and (max-width: 600px) {
         width: 95vw;
         margin-bottom: 100px;
