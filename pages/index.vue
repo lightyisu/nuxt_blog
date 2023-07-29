@@ -54,7 +54,7 @@
         <el-card shadow="hover" class="box-card">
           <div v-for="(item, index) in articles" :key="index" class="text item">
             <nuxt-link :to="'/blog/' + item.slug">
-          <p class="title">  {{ item.title }} <span class="title_time">     {{ item.updateDate }}</span></p>
+          <p class="title" style="font-size: 20px;">{{ item.title }} <span class="title_time">     {{ item.updateDate }}</span></p>
           </nuxt-link>
           <el-divider />
           </div>
